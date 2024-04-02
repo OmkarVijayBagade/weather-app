@@ -1,2 +1,1 @@
-# weather-app
-#OmkarVijayBagade.github.io
+#weather-app

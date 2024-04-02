@@ -1,0 +1,96 @@
+{%extends 'base.html'%}
+{%block title%} Weather App {%endblock%}
+{%block head%}
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    .container {
+        max-width: 600px;
+        margin: 50px auto;
+        background-color: #fff;
+        border-radius: 5px;
+        padding: 20px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    h1 {
+        text-align: center;
+    }
+    .weather-icon {
+        display: block;
+        margin: 0 auto;
+        width: 100px;
+        height: 100px;
+    }
+    .weather-data {
+        margin-top: 20px;
+    }
+    .weather-data p {
+        margin-bottom: 10px;
+    }
+</style>
+{%endblock%}
+
+{%block content%}
+
+<div class="container">
+    <h1 class="mb-4">Weather Information</h1>
+    <form action="/" method="post" class="mb-4">
+        <div class="input-group">
+            <input type="text" name="city" class="form-control" placeholder="Enter city name">
+            <div class="input-group-append">
+                <button type="submit" class="btn btn-primary">Get Weather</button>
+            </div>
+        </div>
+    </form>
+    <div class="row weather-data ">
+        <div class="col-md-6 ">
+            <div class="card">
+                <div class="card-body p-3 bg-white rounded shadow-sm">
+                    <h5 class="card-title">Country</h5>
+                    <p class="card-text">{{ data.country_code }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body p-3 bg-white rounded shadow-sm">
+                    <h5 class="card-title">Coordinate</h5>
+                    <p class="card-text">{{ data.coordinate }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body p-3 bg-white rounded shadow-sm">
+                    <h5 class="card-title">Temperature</h5>
+                    <p class="card-text">{{ data.temp }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body p-3 bg-white rounded shadow-sm">
+                    <h5 class="card-title">Pressure</h5>
+                    <p class="card-text">{{ data.pressure }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body p-3 bg-white rounded shadow-sm">
+                    <h5 class="card-title">Humidity</h5>
+                    <p class="card-text">{{ data.humidity }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{%endblock%}
